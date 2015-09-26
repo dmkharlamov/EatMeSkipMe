@@ -16,7 +16,7 @@
 
 
 static CGSize const kOnboardingCellSize = {100.0, 100.0};
-static UIEdgeInsets const kOnboardingCellInsets = {50, 10, 20, 10};
+static UIEdgeInsets const kOnboardingCellInsets = {30, 10, 40, 10};
 
 
 static NSString * const kOnboardingCellID = @"onboardingCellID";
