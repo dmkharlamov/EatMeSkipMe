@@ -1,0 +1,46 @@
+{
+
+"5034709003777":{
+"name": "BURTS Firecracker Lobster",
+    "intolerances": {
+        "MILK": 2,
+        "CRUSTACEAN": 1
+    }
+},
+"5034709000271": {
+"name": "BURTS Vintage Cheddar & Onion",
+    "intolerances": {
+        "MILK": 2
+    }
+},
+"8712100712494":
+{"name": "PG TIPS 240S PYRAMID TEABAGS",
+    "intolerances": {
+    }
+},
+"5740900805002":
+{"name": "Lurpack Blended spread 78%",
+    "intolerances": {
+        "MILK": 7
+    }
+},
+"5022090000208":
+{"name": "Semi Skimmed Milk",
+    "intolerances": {
+        "MILK": 8
+    }
+},
+"5060152092198":
+{"name": "Whistling Track White Wine",
+    "intolerances": {
+        "ALCOHOL": 7
+    }
+},
+"9310415015317":
+{"name": "McGuigan Classic Sauvignon Blanc 2013",
+    "intolerances": {
+        "ALCOHOL": 7
+    }
+}
+
+}
