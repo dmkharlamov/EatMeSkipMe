@@ -24,6 +24,7 @@
 		502331AD1BB62B80007945BA /* OnboardingFooterReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331AC1BB62B80007945BA /* OnboardingFooterReusableView.m */; settings = {ASSET_TAGS = (); }; };
 		502331AF1BB6386E007945BA /* FoodIntolerancesData.json in Resources */ = {isa = PBXBuildFile; fileRef = 502331AE1BB6386E007945BA /* FoodIntolerancesData.json */; settings = {ASSET_TAGS = (); }; };
 		502331B21BB63896007945BA /* FoodIntolerancesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331B11BB63896007945BA /* FoodIntolerancesManager.m */; settings = {ASSET_TAGS = (); }; };
+		502331B61BB6624A007945BA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331B51BB6624A007945BA /* HistoryViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		502331AE1BB6386E007945BA /* FoodIntolerancesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FoodIntolerancesData.json; sourceTree = "<group>"; };
 		502331B01BB63896007945BA /* FoodIntolerancesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodIntolerancesManager.h; sourceTree = "<group>"; };
 		502331B11BB63896007945BA /* FoodIntolerancesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodIntolerancesManager.m; sourceTree = "<group>"; };
+		502331B41BB6624A007945BA /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		502331B51BB6624A007945BA /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,7 @@
 				502331921BB5F2DD007945BA /* Categories */,
 				5023318A1BB5F25B007945BA /* Onboarding */,
 				5023318B1BB5F261007945BA /* Camera */,
+				502331B31BB66233007945BA /* History */,
 				5023315A1BB5F1D1007945BA /* AppDelegate.h */,
 				5023315B1BB5F1D1007945BA /* AppDelegate.m */,
 				502331B01BB63896007945BA /* FoodIntolerancesManager.h */,
@@ -205,6 +209,15 @@
 				502331971BB5F310007945BA /* NSUserDefaults+EatMeSkipMe.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		502331B31BB66233007945BA /* History */ = {
+			isa = PBXGroup;
+			children = (
+				502331B41BB6624A007945BA /* HistoryViewController.h */,
+				502331B51BB6624A007945BA /* HistoryViewController.m */,
+			);
+			name = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +362,7 @@
 				502331B21BB63896007945BA /* FoodIntolerancesManager.m in Sources */,
 				502331A41BB60081007945BA /* CameraResponseView.m in Sources */,
 				502331A71BB62B3F007945BA /* OnboardingViewController.m in Sources */,
+				502331B61BB6624A007945BA /* HistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

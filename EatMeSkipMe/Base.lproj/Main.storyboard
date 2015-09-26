@@ -174,15 +174,53 @@
                             <constraint firstItem="LTg-e9-URl" firstAttribute="centerX" secondItem="DAW-hP-Qdv" secondAttribute="centerX" id="lYK-XQ-Wk6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scan" id="Khm-mp-bgz"/>
+                    <navigationItem key="navigationItem" title="Scan" id="Khm-mp-bgz">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="gUN-ig-z2E">
+                            <connections>
+                                <action selector="buttonHistory:" destination="2vo-Hv-BHf" id="8vZ-kQ-SuS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="previewView" destination="6yc-yx-WMo" id="Jg8-Se-awP"/>
                         <outlet property="responseView" destination="LTg-e9-URl" id="t5f-lh-8cs"/>
+                        <segue destination="7Xt-tx-WwP" kind="show" identifier="cameraToHistorySegueID" id="MnD-sd-7qT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkH-24-iZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="633" y="27"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="dXD-hd-Dnw">
+            <objects>
+                <tableViewController id="7Xt-tx-WwP" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iSV-QT-b9d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mqg-fz-fOq">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mqg-fz-fOq" id="ygx-KI-d4k">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7Xt-tx-WwP" id="I0z-iv-ocq"/>
+                            <outlet property="delegate" destination="7Xt-tx-WwP" id="gAb-nB-UVo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3GE-8B-PD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="27"/>
         </scene>
     </scenes>
 </document>

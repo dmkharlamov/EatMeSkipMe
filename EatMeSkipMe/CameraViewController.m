@@ -16,6 +16,9 @@
 @import AVFoundation;
 
 
+static NSString * const kCameraToHistorySegueID = @"cameraToHistorySegueID";
+
+
 @interface CameraViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *previewView;
@@ -95,6 +98,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark -
+
+- (IBAction)buttonHistory:(id)sender
+{
+    [self performSegueWithIdentifier:kCameraToHistorySegueID sender:self];
+}
 
 #pragma mark - AV capture methods
 
