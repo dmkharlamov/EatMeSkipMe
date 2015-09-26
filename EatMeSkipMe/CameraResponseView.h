@@ -9,13 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-typedef NS_ENUM(NSUInteger, CameraResponseType) {
-    CameraResponseTypeOff = 0,
-    CameraResponseTypeGood,
-    CameraResponseTypeOK,
-    CameraResponseTypeBad,
-    CameraResponseTypeCount
-};
+#import "EatMeSkipMeCommon.h"
 
 
 @interface CameraResponseView : UIView

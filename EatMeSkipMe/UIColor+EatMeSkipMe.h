@@ -10,4 +10,19 @@
 
 @interface UIColor (EatMeSkipMe)
 
++ (UIColor *)colorForNavigationBarBackground;
++ (UIColor *)colorForNavigationBarText;
+
++ (UIColor *)colorForOnboardingBackgroundInactive;
++ (UIColor *)colorForOnboardingBackgroundActive;
+
++ (UIColor *)colorForOnboardingBorderInactive;
++ (UIColor *)colorForOnboardingBorderActive;
+
++ (UIColor *)colorForOnboardingTextInactive;
++ (UIColor *)colorForOnboardingTextActive;
+
++ (UIColor *)colorForOnboardingButtonBackground;
++ (UIColor *)colorForOnboardingButtonText;
+
 @end

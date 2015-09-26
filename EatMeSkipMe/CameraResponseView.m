@@ -31,7 +31,7 @@
             self.backgroundColor = [UIColor greenColor];
             
             break;
-        case CameraResponseTypeOK:
+        case CameraResponseTypeUnknown:
             self.backgroundColor = [UIColor yellowColor];
             
             break;

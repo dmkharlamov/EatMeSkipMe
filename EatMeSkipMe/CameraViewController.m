@@ -9,6 +9,10 @@
 #import "CameraViewController.h"
 #import "CameraResponseView.h"
 
+#import "FoodIntolerancesManager.h"
+
+#import "EatMeSkipMeCommon.h"
+
 @import AVFoundation;
 
 
@@ -94,7 +98,6 @@
     
     [self startRunning];
 }
-
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -229,8 +232,10 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
              if (![self.currentProductID isEqualToString:code.stringValue]) {
                  self.currentProductID = code.stringValue;
                  
+                 FoodIntoleranceLevel level = [[FoodIntolerancesManager sharedManager] intolerancyLevelForProductID:code.stringValue];
+                 
                  dispatch_async(dispatch_get_main_queue(), ^{
-                     self.responseView.responseType = CameraResponseTypeGood + arc4random_uniform(CameraResponseTypeCount - 1) ;
+                     self.responseView.responseType = cameraResponseTypeForFoodIntoleranceLevel(level);
                  });
              }
              

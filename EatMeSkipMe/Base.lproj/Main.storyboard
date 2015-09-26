@@ -14,14 +14,14 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="2vo-Hv-BHf" kind="relationship" relationship="rootViewController" id="Dwg-HN-fiN"/>
+                        <segue destination="JcL-e2-gu9" kind="relationship" relationship="rootViewController" id="wRE-xr-cQf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbM-26-SUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-799" y="27"/>
         </scene>
-        <!--Onboarding View Controller-->
+        <!--Setup-->
         <scene sceneID="N2o-3j-Ct2">
             <objects>
                 <viewController id="JcL-e2-gu9" customClass="OnboardingViewController" sceneMemberID="viewController">
@@ -36,30 +36,72 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nrk-o6-Fvy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fCV-Hu-J63">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="50" height="50"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="50" maxX="10" maxY="50"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="M4z-we-ssH">
-                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="onboardingCellID" id="M4z-we-ssH" customClass="OnboardingCollectionViewCell">
+                                        <rect key="frame" x="10" y="114" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lyn-I9-UG0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstItem="lyn-I9-UG0" firstAttribute="leading" secondItem="M4z-we-ssH" secondAttribute="leading" id="0Oi-lp-UaF"/>
+                                            <constraint firstAttribute="trailing" secondItem="lyn-I9-UG0" secondAttribute="trailing" id="hPx-fN-V2x"/>
+                                            <constraint firstAttribute="bottom" secondItem="lyn-I9-UG0" secondAttribute="bottom" id="o3G-gl-5Qu"/>
+                                            <constraint firstItem="lyn-I9-UG0" firstAttribute="top" secondItem="M4z-we-ssH" secondAttribute="top" id="sZ0-Ob-aij"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="foodToleranceNameLabel" destination="lyn-I9-UG0" id="E6v-jC-hGL"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XVb-Rh-SfL">
-                                    <rect key="frame" x="0.0" y="114" width="600" height="50"/>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="onboardingFooterID" id="XVb-Rh-SfL" customClass="OnboardingFooterReusableView">
+                                    <rect key="frame" x="0.0" y="264" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uS6-jF-gK5">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                            <animations/>
+                                            <state key="normal" title="Proceed"/>
+                                            <connections>
+                                                <action selector="buttonAction:" destination="XVb-Rh-SfL" eventType="touchUpInside" id="reb-t1-Kzw"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="uS6-jF-gK5" firstAttribute="leading" secondItem="XVb-Rh-SfL" secondAttribute="leading" id="ApU-ZB-lDe"/>
+                                        <constraint firstItem="uS6-jF-gK5" firstAttribute="top" secondItem="XVb-Rh-SfL" secondAttribute="top" id="iqC-wa-akf"/>
+                                        <constraint firstAttribute="bottom" secondItem="uS6-jF-gK5" secondAttribute="bottom" id="kFc-aS-GlZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="uS6-jF-gK5" secondAttribute="trailing" id="wf6-h1-SBf"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="actionButton" destination="uS6-jF-gK5" id="SK4-w2-U1I"/>
+                                    </connections>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="JcL-e2-gu9" id="TDT-Gx-DwR"/>
+                                    <outlet property="delegate" destination="JcL-e2-gu9" id="iOx-w5-pla"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <animations/>
@@ -71,16 +113,17 @@
                             <constraint firstAttribute="bottom" secondItem="nrk-o6-Fvy" secondAttribute="bottom" id="pJK-yV-7Yy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ghb-ZX-9zq"/>
+                    <navigationItem key="navigationItem" title="Setup" id="ghb-ZX-9zq"/>
                     <connections>
                         <outlet property="onboardingCollectionView" destination="nrk-o6-Fvy" id="E0L-en-fNk"/>
+                        <segue destination="2vo-Hv-BHf" kind="show" identifier="onboardingToCameraSegueID" id="vdC-Km-Xqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFe-Hl-PsH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589" y="-497"/>
+            <point key="canvasLocation" x="-107" y="27"/>
         </scene>
-        <!--Camera-->
+        <!--Scan-->
         <scene sceneID="bRJ-RO-drQ">
             <objects>
                 <viewController id="2vo-Hv-BHf" customClass="CameraViewController" sceneMemberID="viewController">
@@ -107,15 +150,14 @@
                             <constraint firstAttribute="bottom" secondItem="6yc-yx-WMo" secondAttribute="bottom" id="glb-ma-QrW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera" id="Khm-mp-bgz"/>
+                    <navigationItem key="navigationItem" title="Scan" id="Khm-mp-bgz"/>
                     <connections>
                         <outlet property="previewView" destination="6yc-yx-WMo" id="Jg8-Se-awP"/>
-                        <segue destination="JcL-e2-gu9" kind="show" id="aAR-Gi-gog"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkH-24-iZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-111" y="27"/>
+            <point key="canvasLocation" x="633" y="27"/>
         </scene>
     </scenes>
 </document>

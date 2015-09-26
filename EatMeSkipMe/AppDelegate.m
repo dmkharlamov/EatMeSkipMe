@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import "UIColor+EatMeSkipMe.h"
+
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setTintColor:[UIColor colorForNavigationBarText]];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName : [UIFont systemFontOfSize:18.0],
+                                                            NSForegroundColorAttributeName : [UIColor colorForNavigationBarText]}];
+    
     return YES;
 }
 

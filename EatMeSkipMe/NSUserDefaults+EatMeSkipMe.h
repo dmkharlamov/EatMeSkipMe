@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "EatMeSkipMeCommon.h"
+
+
 @interface NSUserDefaults (EatMeSkipMe)
+
+- (FoodIntoleranceState)foodIntoleranceStateForFoodIntoleranceType:(FoodIntoleranceType)type;
+- (void)setFoodIntoleranceState:(FoodIntoleranceState)state forFoodIntoleranceType:(FoodIntoleranceType)type;
 
 @end

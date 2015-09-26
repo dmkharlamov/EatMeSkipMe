@@ -10,4 +10,20 @@
 
 @implementation NSUserDefaults (EatMeSkipMe)
 
+- (NSString *)keyForFoodIntoleranceType:(FoodIntoleranceType)type
+{
+    return [NSString stringWithFormat:@"foodIntoleranceType%lu", (NSInteger)type];
+}
+
+- (FoodIntoleranceState)foodIntoleranceStateForFoodIntoleranceType:(FoodIntoleranceType)type
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:[self keyForFoodIntoleranceType:type]] integerValue];
+}
+
+- (void)setFoodIntoleranceState:(FoodIntoleranceState)state forFoodIntoleranceType:(FoodIntoleranceType)type
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@(state)
+                                              forKey:[self keyForFoodIntoleranceType:type]];
+}
+
 @end
