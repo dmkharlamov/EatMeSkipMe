@@ -23,8 +23,9 @@
 		502331AA1BB62B53007945BA /* OnboardingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331A91BB62B53007945BA /* OnboardingCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		502331AD1BB62B80007945BA /* OnboardingFooterReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331AC1BB62B80007945BA /* OnboardingFooterReusableView.m */; settings = {ASSET_TAGS = (); }; };
 		502331AF1BB6386E007945BA /* FoodIntolerancesData.json in Resources */ = {isa = PBXBuildFile; fileRef = 502331AE1BB6386E007945BA /* FoodIntolerancesData.json */; settings = {ASSET_TAGS = (); }; };
-		502331B21BB63896007945BA /* FoodIntolerancesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331B11BB63896007945BA /* FoodIntolerancesManager.m */; settings = {ASSET_TAGS = (); }; };
+		502331B21BB63896007945BA /* FoodIntoleranceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331B11BB63896007945BA /* FoodIntoleranceManager.m */; settings = {ASSET_TAGS = (); }; };
 		502331B61BB6624A007945BA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331B51BB6624A007945BA /* HistoryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		502331B91BB67FA3007945BA /* HistoryRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 502331B81BB67FA3007945BA /* HistoryRecord.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,10 +77,12 @@
 		502331AB1BB62B80007945BA /* OnboardingFooterReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingFooterReusableView.h; sourceTree = "<group>"; };
 		502331AC1BB62B80007945BA /* OnboardingFooterReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingFooterReusableView.m; sourceTree = "<group>"; };
 		502331AE1BB6386E007945BA /* FoodIntolerancesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FoodIntolerancesData.json; sourceTree = "<group>"; };
-		502331B01BB63896007945BA /* FoodIntolerancesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodIntolerancesManager.h; sourceTree = "<group>"; };
-		502331B11BB63896007945BA /* FoodIntolerancesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodIntolerancesManager.m; sourceTree = "<group>"; };
+		502331B01BB63896007945BA /* FoodIntoleranceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodIntoleranceManager.h; sourceTree = "<group>"; };
+		502331B11BB63896007945BA /* FoodIntoleranceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodIntoleranceManager.m; sourceTree = "<group>"; };
 		502331B41BB6624A007945BA /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		502331B51BB6624A007945BA /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		502331B71BB67FA3007945BA /* HistoryRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryRecord.h; sourceTree = "<group>"; };
+		502331B81BB67FA3007945BA /* HistoryRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryRecord.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +139,8 @@
 				502331B31BB66233007945BA /* History */,
 				5023315A1BB5F1D1007945BA /* AppDelegate.h */,
 				5023315B1BB5F1D1007945BA /* AppDelegate.m */,
-				502331B01BB63896007945BA /* FoodIntolerancesManager.h */,
-				502331B11BB63896007945BA /* FoodIntolerancesManager.m */,
+				502331B01BB63896007945BA /* FoodIntoleranceManager.h */,
+				502331B11BB63896007945BA /* FoodIntoleranceManager.m */,
 				502331991BB5F32C007945BA /* EatMeSkipMeCommon.h */,
 				5023319A1BB5F32C007945BA /* EatMeSkipMeCommon.m */,
 				502331AE1BB6386E007945BA /* FoodIntolerancesData.json */,
@@ -216,6 +219,8 @@
 			children = (
 				502331B41BB6624A007945BA /* HistoryViewController.h */,
 				502331B51BB6624A007945BA /* HistoryViewController.m */,
+				502331B71BB67FA3007945BA /* HistoryRecord.h */,
+				502331B81BB67FA3007945BA /* HistoryRecord.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -359,10 +364,11 @@
 				5023319B1BB5F32C007945BA /* EatMeSkipMeCommon.m in Sources */,
 				502331981BB5F310007945BA /* NSUserDefaults+EatMeSkipMe.m in Sources */,
 				502331591BB5F1D1007945BA /* main.m in Sources */,
-				502331B21BB63896007945BA /* FoodIntolerancesManager.m in Sources */,
+				502331B21BB63896007945BA /* FoodIntoleranceManager.m in Sources */,
 				502331A41BB60081007945BA /* CameraResponseView.m in Sources */,
 				502331A71BB62B3F007945BA /* OnboardingViewController.m in Sources */,
 				502331B61BB6624A007945BA /* HistoryViewController.m in Sources */,
+				502331B91BB67FA3007945BA /* HistoryRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

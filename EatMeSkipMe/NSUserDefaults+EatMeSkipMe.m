@@ -15,6 +15,11 @@
     return [NSString stringWithFormat:@"foodIntoleranceType%lu", (NSInteger)type];
 }
 
+- (NSString *)keyForFoodIntoleranceHistory
+{
+    return @"foodIntoleranceHistory";
+}
+
 - (FoodIntoleranceState)foodIntoleranceStateForFoodIntoleranceType:(FoodIntoleranceType)type
 {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:[self keyForFoodIntoleranceType:type]] integerValue];
@@ -24,6 +29,21 @@
 {
     [[NSUserDefaults standardUserDefaults] setObject:@(state)
                                               forKey:[self keyForFoodIntoleranceType:type]];
+}
+
+- (NSArray *)foodIntoleranceHistory
+{
+    NSArray *history = [[NSUserDefaults standardUserDefaults] objectForKey:[self keyForFoodIntoleranceHistory]];
+
+    return history ?: @[];
+}
+
+- (void)setFoodIntoleranceHistory:(NSArray *)history
+{
+    if (history != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:history
+                                                  forKey:[self keyForFoodIntoleranceHistory]];
+    }
 }
 
 @end

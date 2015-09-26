@@ -9,7 +9,7 @@
 #import "CameraViewController.h"
 #import "CameraResponseView.h"
 
-#import "FoodIntolerancesManager.h"
+#import "FoodIntoleranceManager.h"
 
 #import "EatMeSkipMeCommon.h"
 
@@ -17,6 +17,8 @@
 
 
 static NSString * const kCameraToHistorySegueID = @"cameraToHistorySegueID";
+
+static NSTimeInterval kEatMeSkipMeCameraResponseInterval = 1;
 
 
 @interface CameraViewController () <AVCaptureMetadataOutputObjectsDelegate>
@@ -78,7 +80,6 @@ static NSString * const kCameraToHistorySegueID = @"cameraToHistorySegueID";
 {
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         self.previewLayer.connection.videoOrientation = (AVCaptureVideoOrientation)[UIApplication sharedApplication].statusBarOrientation;
-        
         
         self.previewLayer.frame = self.previewView.bounds;
     } completion:nil];
@@ -167,7 +168,7 @@ static NSString * const kCameraToHistorySegueID = @"cameraToHistorySegueID";
 {
     [self.responseUpdateTimer invalidate];
     
-    self.responseUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:1
+    self.responseUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:kEatMeSkipMeCameraResponseInterval
                                                                        target:self
                                                                      selector:@selector(responseUpdateTimerFire:)
                                                                      userInfo:nil
@@ -176,6 +177,8 @@ static NSString * const kCameraToHistorySegueID = @"cameraToHistorySegueID";
 
 - (void)stopResponseUpdateTimer
 {
+    [self.responseUpdateTimer fire];
+    
     [self.responseUpdateTimer invalidate];
 }
 
@@ -206,7 +209,9 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
              if (![self.currentProductID isEqualToString:code.stringValue]) {
                  self.currentProductID = code.stringValue;
                  
-                 FoodIntoleranceLevel level = [[FoodIntolerancesManager sharedManager] intolerancyLevelForProductID:code.stringValue];
+                 FoodIntoleranceLevel level = [[FoodIntoleranceManager sharedManager] foodIntoleranceLevelForProductID:code.stringValue];
+                 
+                 [[FoodIntoleranceManager sharedManager] addFoodIntoleranceHistoryRecordForProductID:self.currentProductID];
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
                      self.responseView.responseType = cameraResponseTypeForFoodIntoleranceLevel(level);

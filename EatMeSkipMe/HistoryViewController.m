@@ -8,6 +8,12 @@
 
 #import "HistoryViewController.h"
 
+#import "FoodIntoleranceManager.h"
+
+
+static NSString * const kHistoryCellID = @"historyCellID";
+
+
 @interface HistoryViewController ()
 
 @end
@@ -32,24 +38,31 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [FoodIntoleranceManager sharedManager].foodIntoleranceHistory.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHistoryCellID forIndexPath:indexPath];
+
+    HistoryRecord *record = [[FoodIntoleranceManager sharedManager] foodIntoleranceHistoryRecordForIndex:indexPath.row];
     
-    // Configure the cell...
+    cell.textLabel.text = record.name;
+    cell.detailTextLabel.text = [record.timestamp description];
     
     return cell;
 }
-*/
+
+#pragma mark - UITableViewDelegate
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -58,6 +71,26 @@
     return YES;
 }
 */
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (editingStyle) {
+        case UITableViewCellEditingStyleDelete: {
+            HistoryRecord *record = [[FoodIntoleranceManager sharedManager] foodIntoleranceHistoryRecordForIndex:indexPath.row];
+            
+            [[FoodIntoleranceManager sharedManager] removeFoodIntoleranceHistoryRecord:record];
+            
+            [self.tableView reloadData];
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
 
 /*
 // Override to support editing the table view.

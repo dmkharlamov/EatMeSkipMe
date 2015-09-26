@@ -16,4 +16,7 @@
 - (FoodIntoleranceState)foodIntoleranceStateForFoodIntoleranceType:(FoodIntoleranceType)type;
 - (void)setFoodIntoleranceState:(FoodIntoleranceState)state forFoodIntoleranceType:(FoodIntoleranceType)type;
 
+- (NSArray *)foodIntoleranceHistory;
+- (void)setFoodIntoleranceHistory:(NSArray *)history;
+
 @end
