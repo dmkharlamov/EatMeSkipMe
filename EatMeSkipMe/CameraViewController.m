@@ -19,7 +19,7 @@
 @interface CameraViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *previewView;
-@property (nonatomic, strong) CameraResponseView *responseView;
+@property (nonatomic, strong) IBOutlet CameraResponseView *responseView;
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureDevice *videoDevice;
@@ -43,42 +43,6 @@
     [self setupCaptureSession];
     self.previewLayer.frame = self.view.bounds;
     [self.previewView.layer addSublayer:self.previewLayer];
-    
-    self.responseView = [[CameraResponseView alloc] init];
-    [self.responseView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    [self.view addSubview:self.responseView];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.responseView
-                                                          attribute:NSLayoutAttributeCenterX
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterX
-                                                         multiplier:1
-                                                           constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.responseView
-                                                          attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterY
-                                                         multiplier:1
-                                                           constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.responseView
-                                                          attribute:NSLayoutAttributeWidth
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:nil
-                                                          attribute:NSLayoutAttributeNotAnAttribute
-                                                         multiplier:1
-                                                           constant:100]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.responseView
-                                                          attribute:NSLayoutAttributeHeight
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:nil
-                                                          attribute:NSLayoutAttributeNotAnAttribute
-                                                         multiplier:1
-                                                           constant:100]];
-    
-    [self.view bringSubviewToFront:self.responseView];
     
     // listen for going into the background and stop the session
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -8,7 +8,21 @@
 
 #import "CameraResponseView.h"
 
+@interface CameraResponseView ()
+
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+
+@end
+
+
 @implementation CameraResponseView
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.backgroundColor = [UIColor clearColor];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -23,24 +37,22 @@
     _responseType = responseType;
     
     switch (responseType) {
-        case CameraResponseTypeOff:
-            self.backgroundColor = [UIColor clearColor];
-            
-            break;
         case CameraResponseTypeGood:
-            self.backgroundColor = [UIColor greenColor];
+            self.imageView.image = [UIImage imageNamed:@"CameraResponseTypeGood"];
             
             break;
         case CameraResponseTypeUnknown:
-            self.backgroundColor = [UIColor yellowColor];
+            self.imageView.image = [UIImage imageNamed:@"CameraResponseTypeUnknown"];
             
             break;
         case CameraResponseTypeBad:
-            self.backgroundColor = [UIColor redColor];
+            self.imageView.image = [UIImage imageNamed:@"CameraResponseTypeBad"];
             
             break;
-            
+        case CameraResponseTypeOff:
         default:
+            self.imageView.image = nil;
+            
             break;
     }
 }

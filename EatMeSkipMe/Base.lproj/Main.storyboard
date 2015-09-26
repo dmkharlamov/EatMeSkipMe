@@ -140,6 +140,28 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LTg-e9-URl" customClass="CameraResponseView">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G9d-vz-KJu">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <animations/>
+                                    </imageView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="G9d-vz-KJu" firstAttribute="height" secondItem="LTg-e9-URl" secondAttribute="height" id="Krs-wQ-TBS"/>
+                                    <constraint firstAttribute="width" constant="150" id="StI-1Q-vY7"/>
+                                    <constraint firstItem="G9d-vz-KJu" firstAttribute="leading" secondItem="LTg-e9-URl" secondAttribute="leading" id="Ts0-Vb-6hM"/>
+                                    <constraint firstAttribute="height" constant="150" id="XpU-Tl-XEu"/>
+                                    <constraint firstItem="G9d-vz-KJu" firstAttribute="top" secondItem="LTg-e9-URl" secondAttribute="top" id="csU-tg-8k4"/>
+                                    <constraint firstItem="G9d-vz-KJu" firstAttribute="width" secondItem="LTg-e9-URl" secondAttribute="width" id="n1u-xp-pPC"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="G9d-vz-KJu" id="tiW-ry-kOz"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,12 +169,15 @@
                             <constraint firstItem="6yc-yx-WMo" firstAttribute="top" secondItem="DAW-hP-Qdv" secondAttribute="top" id="EeP-Z3-DyZ"/>
                             <constraint firstAttribute="trailing" secondItem="6yc-yx-WMo" secondAttribute="trailing" id="GJi-o5-TlN"/>
                             <constraint firstItem="6yc-yx-WMo" firstAttribute="leading" secondItem="DAW-hP-Qdv" secondAttribute="leading" id="J4l-gN-Jbx"/>
+                            <constraint firstItem="LTg-e9-URl" firstAttribute="centerY" secondItem="DAW-hP-Qdv" secondAttribute="centerY" id="fF2-l4-VTI"/>
                             <constraint firstAttribute="bottom" secondItem="6yc-yx-WMo" secondAttribute="bottom" id="glb-ma-QrW"/>
+                            <constraint firstItem="LTg-e9-URl" firstAttribute="centerX" secondItem="DAW-hP-Qdv" secondAttribute="centerX" id="lYK-XQ-Wk6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scan" id="Khm-mp-bgz"/>
                     <connections>
                         <outlet property="previewView" destination="6yc-yx-WMo" id="Jg8-Se-awP"/>
+                        <outlet property="responseView" destination="LTg-e9-URl" id="t5f-lh-8cs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkH-24-iZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
